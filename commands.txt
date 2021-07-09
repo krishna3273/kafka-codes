@@ -1,0 +1,16 @@
+1)kafka-topics.sh  --zookeeper 127.0.0.1:2181 --topic first-topic --create --partitions 3 --replication-factor 1
+2)kafka-topics.sh  --zookeeper 127.0.0.1:2181 --list
+3)kafka-topics.sh  --zookeeper 127.0.0.1:2181 --topic first-topic --describe
+4)kafka-topics.sh  --zookeeper 127.0.0.1:2181 --topic second-topic --delete
+5) kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first-topic
+6)kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first-topic --producer-property acks=all
+7)kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first-topic
+8)kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first-topic --from-beginning
+9) kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first-topic --group my-first-application
+10)kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+11)kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-first-application
+12) kafka-consumer-groups.sh -bootstrap-server localhost:9092 --group my-first-application --reset-offsets --to-earliest --execute --topic first-topic
+13)kafka-console-producer --broker-list 127.0.0.1:9092 --topic first_topic --property parse.key=true --property key.separator=,
+14)kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning --property print.key=true --property key.separator=,
+15)kafka-configs --zookeeper localhost:2181 --entity-type topics --entity-name configured-topic --describe
+16)kafka-configs --zookeeper localhost:2181 --entity-type topics --entity-name configured-topic --add-config min.insync.replicas=2 --alter
